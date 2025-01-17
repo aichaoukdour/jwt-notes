@@ -93,6 +93,7 @@ In order to calculate the signature, you require three things: an encoded header
 
 A JSON Web Token (JWT) works as a secure way to authenticate and authorize users in a stateless manner. When a user logs in by submitting their credentials (like a username and password), the server authenticates the user. Upon successful authentication, the server generates a JWT, which is sent back to the client. The client stores this token and uses it to request access to protected resources by including the JWT in the Authorization header, following the Bearer schema. When the server receives a request, it checks the Authorization header for the JWT, validates it using a secret key, and grants access if the token is valid. The JWT contains embedded information about the user, such as their ID and privileges, allowing the server to identify and authorize the user without needing to query the database repeatedly. This also enhances security since the token is signed with a secret key that only the server knows, making it impossible for attackers to alter the token without invalidating it. This mechanism ensures that only authorized users can access protected resources, and any tampering attempts are immediately detected by the server.
 
+--- 
 ## Advantages of JSON Web Token
 
 Compactness: JSON is less verbose than XML and therefore when it is encoded it takes up less space making JWT more compact then SAML.
@@ -102,6 +103,8 @@ No need of Cookies: The token can be stored in the localStorage, indexDB, or som
 Compatibility: In most programming languages, JSON parsers are popular because they map directly to objects. Contrary, there is no natural document-to-object mapping in XML. This makes it simpler than SAML assertions to operate with JWT.
 
 That’s it! Now you know pretty much everything about JSON Web Token.
+
+---
 
 ## 📥 Installation
 1. Install JWT Library
@@ -127,5 +130,10 @@ In Python, you can use the pyjwt package:
 ```
 pip install pyjwt
 ```
+---
+## 📖 References
+JWT.io
+RFC 7519
+
 
 
