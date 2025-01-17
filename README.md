@@ -92,3 +92,40 @@ In order to calculate the signature, you require three things: an encoded header
 ![JWT (1)](https://github.com/user-attachments/assets/ddac4b81-9b38-4d80-ae38-4885e1c64497)
 
 A JSON Web Token (JWT) works as a secure way to authenticate and authorize users in a stateless manner. When a user logs in by submitting their credentials (like a username and password), the server authenticates the user. Upon successful authentication, the server generates a JWT, which is sent back to the client. The client stores this token and uses it to request access to protected resources by including the JWT in the Authorization header, following the Bearer schema. When the server receives a request, it checks the Authorization header for the JWT, validates it using a secret key, and grants access if the token is valid. The JWT contains embedded information about the user, such as their ID and privileges, allowing the server to identify and authorize the user without needing to query the database repeatedly. This also enhances security since the token is signed with a secret key that only the server knows, making it impossible for attackers to alter the token without invalidating it. This mechanism ensures that only authorized users can access protected resources, and any tampering attempts are immediately detected by the server.
+
+## Advantages of JSON Web Token
+
+Compactness: JSON is less verbose than XML and therefore when it is encoded it takes up less space making JWT more compact then SAML.
+No need of Session: The JWT can contain all the necessary information about the user and therefore there is no need to maintain a session object on the server, saving up server memory.
+Built-in Expiration: The JWT has claims that can be used to assign it a expiration date/time. Therefore, the token can become invalid on its own after the expiration period.
+No need of Cookies: The token can be stored in the localStorage, indexDB, or some native store. This will provide a protection against CORS and CSRF attacks.
+Compatibility: In most programming languages, JSON parsers are popular because they map directly to objects. Contrary, there is no natural document-to-object mapping in XML. This makes it simpler than SAML assertions to operate with JWT.
+
+That’s it! Now you know pretty much everything about JSON Web Token.
+
+## 📥 Installation
+1. Install JWT Library
+To start using JWT in your project, you need to install the necessary libraries for your environment.
+
+Node.js (for a JavaScript/Node backend)
+For Node.js, you can use the jsonwebtoken package:
+
+```
+npm install jsonwebtoken
+```
+Spring Boot (for Java backend)
+For Java projects using Spring Boot, you can add the following dependency to your pom.xml:
+```
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt</artifactId>
+    <version>0.11.5</version>
+</dependency>
+```
+Python (for Python backend)
+In Python, you can use the pyjwt package:
+```
+pip install pyjwt
+```
+
+
