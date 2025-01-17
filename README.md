@@ -91,7 +91,12 @@ In order to calculate the signature, you require three things: an encoded header
 ## ⚙️ How JWT Works ?
 ![JWT (1)](https://github.com/user-attachments/assets/ddac4b81-9b38-4d80-ae38-4885e1c64497)
 
-A JSON Web Token (JWT) works as a secure way to authenticate and authorize users in a stateless manner. When a user logs in by submitting their credentials (like a username and password), the server authenticates the user. Upon successful authentication, the server generates a JWT, which is sent back to the client. The client stores this token and uses it to request access to protected resources by including the JWT in the Authorization header, following the Bearer schema. When the server receives a request, it checks the Authorization header for the JWT, validates it using a secret key, and grants access if the token is valid. The JWT contains embedded information about the user, such as their ID and privileges, allowing the server to identify and authorize the user without needing to query the database repeatedly. This also enhances security since the token is signed with a secret key that only the server knows, making it impossible for attackers to alter the token without invalidating it. This mechanism ensures that only authorized users can access protected resources, and any tampering attempts are immediately detected by the server.
+A JSON Web Token (JWT) works as a secure way to authenticate and authorize users in a stateless manner. 
+When a user logs in by submitting their credentials (like a username and password), the server authenticates the user. Upon successful authentication, the server generates a JWT, which is sent back to the client. 
+The client stores this token and uses it to request access to protected resources by including the JWT in the Authorization header, following the Bearer schema. When the server receives a request, it checks the Authorization header for the JWT, validates it using a secret key, and grants access if the token is valid. 
+The JWT contains embedded information about the user, such as their ID and privileges, allowing the server to identify and authorize the user without needing to query the database repeatedly. 
+This also enhances security since the token is signed with a secret key that only the server knows, making it impossible for attackers to alter the token without invalidating it. 
+This mechanism ensures that only authorized users can access protected resources, and any tampering attempts are immediately detected by the server.
 
 --- 
 ## Advantages of JSON Web Token
@@ -132,8 +137,22 @@ pip install pyjwt
 ```
 ---
 ## 📖 References
-JWT.io
-RFC 7519
+Here are some helpful resources to further your understanding of JWT and its implementation.
+
+### 📖 Official Documentation
+1. [JWT Official RFC 7519 Specification](https://www.rfc-editor.org/rfc/rfc7519)  
+   The official specification of JSON Web Token (JWT) by the IETF.
+
+2. [JWT.io Introduction](https://jwt.io/introduction/)  
+   A comprehensive guide and tutorial on using JWTs with various programming languages.
+
+### 🧑‍💻 Tools and Libraries
+- **[JWT.io Debugger](https://jwt.io/#debugger-io)**  
+  A tool to decode, verify, and generate JWTs directly in your browser.
+- **[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)**  
+  A popular Node.js library for working with JWTs.
+- **[pyjwt](https://pypi.org/project/PyJWT/)**  
+  Python library for encoding and decoding JSON Web Tokens (JWT).
 
 
 
