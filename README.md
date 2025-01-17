@@ -56,6 +56,12 @@ Un JWT est une chaîne encodée composée de trois parties séparées par des po
 
 ### 1️⃣ **Header** 
 The header consists of two parts i.e. the type of token and the algorithm used for signing (such as HMAC SHA256 or RSA). The token type helps to interpret the token and in this case it’s JWT
+Exemple :  
+```json
+{
+  "typ": "JWT",
+  "alg": "HS256"
+}
 ### 2️⃣ **Payload**
 The payload consists of the session data called as claims. Claims provide information about the client/user. There are three types of claims: registered, public, and private claims.
 
@@ -78,7 +84,11 @@ These are custom claims defined and created by two parties in order to exchange 
 Signature is the most important part of JWT which helps to verify if the information within the token has been tampered with or not. It can be also used to verify that the sender of the JWT is who it says it is.
 In order to calculate the signature, you require three things: an encoded header, an encoded payload, and a secret. First, you will take the encoded header and encoded payload and concatenate them with a period separator to form a string. This concatenated string will be hashed using an algorithm specified in the header and a secret key to calculate the signature.
 Consider the following example where we will be using the RSA algorithm to generate a signature.
+Exemple :  
+```json
 HMACSHA256(
   base64UrlEncode(header) + "." + base64UrlEncode(payload), secret
 )
+
+
 
