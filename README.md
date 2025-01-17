@@ -83,12 +83,10 @@ These are custom claims defined and created by two parties in order to exchange 
 ### 3️⃣ **Signature**
 Signature is the most important part of JWT which helps to verify if the information within the token has been tampered with or not. It can be also used to verify that the sender of the JWT is who it says it is.
 In order to calculate the signature, you require three things: an encoded header, an encoded payload, and a secret. First, you will take the encoded header and encoded payload and concatenate them with a period separator to form a string. This concatenated string will be hashed using an algorithm specified in the header and a secret key to calculate the signature.
-Consider the following example where we will be using the RSA algorithm to generate a signature.
-Exemple :  
-```json
-HMACSHA256(
-  base64UrlEncode(header) + "." + base64UrlEncode(payload), secret
-)
 
+---
 
+## ⚙️ How JWT Works ?
+![JWT (1)](https://github.com/user-attachments/assets/ddac4b81-9b38-4d80-ae38-4885e1c64497)
 
+A JSON Web Token (JWT) works as a secure way to authenticate and authorize users in a stateless manner. When a user logs in by submitting their credentials (like a username and password), the server authenticates the user. Upon successful authentication, the server generates a JWT, which is sent back to the client. The client stores this token and uses it to request access to protected resources by including the JWT in the Authorization header, following the Bearer schema. When the server receives a request, it checks the Authorization header for the JWT, validates it using a secret key, and grants access if the token is valid. The JWT contains embedded information about the user, such as their ID and privileges, allowing the server to identify and authorize the user without needing to query the database repeatedly. This also enhances security since the token is signed with a secret key that only the server knows, making it impossible for attackers to alter the token without invalidating it. This mechanism ensures that only authorized users can access protected resources, and any tampering attempts are immediately detected by the server.
