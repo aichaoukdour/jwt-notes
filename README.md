@@ -62,6 +62,7 @@ Exemple :
   "typ": "JWT",
   "alg": "HS256"
 }
+```json
 ### 2️⃣ **Payload**
 The payload consists of the session data called as claims. Claims provide information about the client/user. There are three types of claims: registered, public, and private claims.
 
