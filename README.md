@@ -27,10 +27,22 @@ So, the solution to deal with this is the use of what’s called a session. A se
 
 <img width="517" alt="Screenshot 2025-01-17 093303" src="https://github.com/user-attachments/assets/313506a2-846c-4da1-b8bf-d907a754464b" />
 
+First, the user submits a username and a password that are authenticated by the server. If the authentication is successful a session ID is generated for the respective client. The generated session ID is returned to the client and is stored on the server-side as well.
+Now, the client just needs to send its session ID along with the request to authenticate itself and retrieve necessary information. The server will then check if the session ID is valid or not. If the session is still valid, it will respond with the requested webpage/data. And if not, the server will respond with an error message stating that the request made is unauthorized.
+
 . Limitations:  
    - 📉 **Scalability**: Sessions stored on the server.  
    - ⚙️ **Session Management**: Complexity in handling expired/inactive sessions.  
    - 🕒 **Performance**: Constant checks in memory or databases.
+
+---
+
+### The better and effective solution
+The JSON Web Token (JWT) does not use sessions and hence prevents the above problems. When you send your credentials to the server instead of making a session, the server will return a JSON Web Token. You can use that JWT to do whatever you want with the server (Of course, the things that you are authorized to do).
+Consider a JWT like a hotel key: When you enter the hotel, first you need to register yourself at the reception to receive your key card. You can use that key card to open and close your room, access common amenities like Bar, Fitness Centre, etc. But you cannot use that key card to access someone else’s room or Manager’s office since you are not authorized to do so. The key card comes with an expiration date, and it becomes useless once your stay has ended at the hotel.
+Similarly, you can use your JWT token generated from one server to access resources on different servers. The JWT token contains claims like expiration date/time that can be used to check its validity..
+
+---
 
 ### ✅ JWT Advantage  
 - No need for server-side session management.  
