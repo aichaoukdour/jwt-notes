@@ -78,3 +78,7 @@ These are custom claims defined and created by two parties in order to exchange 
 Signature is the most important part of JWT which helps to verify if the information within the token has been tampered with or not. It can be also used to verify that the sender of the JWT is who it says it is.
 In order to calculate the signature, you require three things: an encoded header, an encoded payload, and a secret. First, you will take the encoded header and encoded payload and concatenate them with a period separator to form a string. This concatenated string will be hashed using an algorithm specified in the header and a secret key to calculate the signature.
 Consider the following example where we will be using the RSA algorithm to generate a signature.
+HMACSHA256(
+  base64UrlEncode(header) + "." + base64UrlEncode(payload), secret
+)
+
