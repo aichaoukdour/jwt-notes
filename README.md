@@ -53,3 +53,28 @@ Similarly, you can use your JWT token generated from one server to access resour
 ##  Structure d’un JWT  
 Un JWT est une chaîne encodée composée de trois parties séparées par des points (`.`) :
 ![JWT](https://github.com/user-attachments/assets/46575af0-8ee3-4fb3-ae05-f02400f2cce2)
+
+### 1️⃣ **Header** 
+The header consists of two parts i.e. the type of token and the algorithm used for signing (such as HMAC SHA256 or RSA). The token type helps to interpret the token and in this case it’s JWT
+### 2️⃣ **Payload**
+The payload consists of the session data called as claims. Claims provide information about the client/user. There are three types of claims: registered, public, and private claims.
+
+#### Registered Claims: 
+These type of claims are predefined claims which can be used for increasing the security. These claims are not mandatory but recommended. Some of these claims are:
+iss (Issuer) Claim: The “iss” claim helps to identify the issuer of the token.
+sub (Subject) Claim: The “sub” claim identifies the subject of the JWT.
+aud (Audience) Claim: The “aud” claim identifies the recipients that the JWT is intended for.
+exp (Expiration Time) Claim: The “exp” claim is used to identify the expiration time on or after which the JWT must not be valid. Its value must be a number containing a NumericDate value. One important thing is that the current date/time must be before the expiration date/time.
+nbf (Not Before) Claim: The “nbf” claim identifies the time before which the JWT must not be accepted for processing. The current date/time must be after or equal to the not-before date/time
+iat (Issued At) Claim: The “iat” claim is used to identify the the time at which the JWT was issued. This claim can be used to determine the age of the JWT.
+jti (JWT ID) Claim: The “jti” claim gives a unique identifier for the JWT. The “jti” value is a case-sensitive string and it should be assigned in such a manner that ensures that there is a negligible probability that the same value will be repeated. The “jti” claim can be used to prevent the JWT from being replayed.
+
+#### Public Claims: 
+These type of claims can be defined by group of people using the JWTs. Whenever any new claim name is defined it is necessary that it should be registered in the IANA “JSON Web Token Registry” or it should contain a collision resistant name to avoid collisions.
+
+#### Private Claims: 
+These are custom claims defined and created by two parties in order to exchange information between them.
+### 3️⃣ **Signature**
+Signature is the most important part of JWT which helps to verify if the information within the token has been tampered with or not. It can be also used to verify that the sender of the JWT is who it says it is.
+In order to calculate the signature, you require three things: an encoded header, an encoded payload, and a secret. First, you will take the encoded header and encoded payload and concatenate them with a period separator to form a string. This concatenated string will be hashed using an algorithm specified in the header and a secret key to calculate the signature.
+Consider the following example where we will be using the RSA algorithm to generate a signature.
