@@ -101,11 +101,14 @@ This mechanism ensures that only authorized users can access protected resources
 --- 
 ## Advantages of JSON Web Token
 
-Compactness: JSON is less verbose than XML and therefore when it is encoded it takes up less space making JWT more compact then SAML.
+#### Compactness: 
+JSON is less verbose than XML and therefore when it is encoded it takes up less space making JWT more compact then SAML.
 No need of Session: The JWT can contain all the necessary information about the user and therefore there is no need to maintain a session object on the server, saving up server memory.
-Built-in Expiration: The JWT has claims that can be used to assign it a expiration date/time. Therefore, the token can become invalid on its own after the expiration period.
+#### Built-in Expiration: 
+The JWT has claims that can be used to assign it a expiration date/time. Therefore, the token can become invalid on its own after the expiration period.
 No need of Cookies: The token can be stored in the localStorage, indexDB, or some native store. This will provide a protection against CORS and CSRF attacks.
-Compatibility: In most programming languages, JSON parsers are popular because they map directly to objects. Contrary, there is no natural document-to-object mapping in XML. This makes it simpler than SAML assertions to operate with JWT.
+#### Compatibility:
+In most programming languages, JSON parsers are popular because they map directly to objects. Contrary, there is no natural document-to-object mapping in XML. This makes it simpler than SAML assertions to operate with JWT.
 
 That’s it! Now you know pretty much everything about JSON Web Token.
 
